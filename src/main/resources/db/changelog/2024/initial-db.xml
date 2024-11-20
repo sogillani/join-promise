@@ -27,5 +27,31 @@
                 <constraints nullable="false" unique="false" />
             </column>
         </createTable>
+        <createTable tableName="event">
+            <column name="event_id" type="uuid">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="creator_id" type="uuid">
+                <constraints nullable="false" />
+            </column>
+            <column name="title" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="text" />
+            <column name="event_date" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="country" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="city" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="postal_code" type="varchar(20)" />
+            <column name="state" type="varchar(250)" />
+            <column name="street_address" type="varchar(255)" />
+            <column name="latitude" type="decimal(10, 8)" />
+            <column name="longitude" type="decimal(11, 8)" />
+        </createTable>
     </changeSet>
 </databaseChangeLog>

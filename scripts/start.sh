@@ -16,6 +16,7 @@ fi
 docker run --name postgres \
   -p 5432:5432 \
   -e POSTGRES_PASSWORD=password \
+  -e POSTGRES_DB=join-promise \
   -d postgres
 
 # Run pgadmin in docker

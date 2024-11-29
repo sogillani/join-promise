@@ -1,6 +1,7 @@
 package com.blxtech.joinpromise.service.user.controller;
 
-import com.blxtech.joinpromise.service.user.model.User;
+import com.blxtech.joinpromise.service.user.dto.UserDTO;
+import com.blxtech.joinpromise.service.user.mapper.UserMapper;
 import com.blxtech.joinpromise.service.user.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +21,11 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getUsers() {
-        return ResponseEntity.ok(userService.getUsers());
+    public ResponseEntity<List<UserDTO>> getUsers() {
+        List<UserDTO> userDTOS = userService.getUsers()
+                .stream()
+                .map(UserMapper::toDTO).toList();
+        return ResponseEntity.ok(userDTOS);
     }
 
 }
